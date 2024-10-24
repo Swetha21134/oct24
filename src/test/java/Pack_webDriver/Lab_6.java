@@ -5,97 +5,43 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.Keys;
-import io.github.bonigarcia.wdm.WebDriverManager;
- 
 import java.time.Duration;
- 
 public class Lab_6 {
-    public static void main(String[] args) {
-        // Set up ChromeDriver using WebDriverManager
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
  
-        // Open Meesho website
-        driver.get("https://www.meesho.com/");
-        driver.manage().window().maximize();
  
-        // Explicit wait initialization
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
- 
-        try {
-            // Locate search box
-            WebElement searchBox = driver.findElement(By.xpath("//input[@placeholder='Try Saree, Kurti or Search by Product Code']"));
-            searchBox.sendKeys("Saree");
-            searchBox.sendKeys(Keys.RETURN);
- 
-            // Wait for the product results to load
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(@href, 'saree')]")));
- 
-            // Scroll the element into view before interacting with it
-            boolean clicked = false;
-            int attempts = 0;
- 
-            while (!clicked && attempts < 3) {  // Retry up to 3 times
-                try {
-                    // Locate the first product again to avoid stale element exception
-                    WebElement firstProduct = driver.findElement(By.xpath("//a[contains(@href, 'saree')]"));
- 
-                    // Scroll the element into view using JavaScript
-                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstProduct);
- 
-                    // Wait for the element to be clickable
-                    wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
- 
-                    // Click the product
-                    firstProduct.click();
-                    clicked = true;
-                } catch (org.openqa.selenium.StaleElementReferenceException | org.openqa.selenium.ElementNotInteractableException e) {
-                    System.out.println(e.getClass().getSimpleName() + " caught, retrying...");
-                    attempts++;
-                    Thread.sleep(1000);  // Pause for a moment before retrying
-                }
-            }
- 
-            if (!clicked) {
-                throw new Exception("Failed to click product after multiple attempts.");
-            }
- 
-            // Wait for the product page to load
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text()='Add to Cart']")));
- 
-            // Click 'Add to Cart' button
-            WebElement addToCartButton = driver.findElement(By.xpath("//button[text()='Add to Cart']"));
-            addToCartButton.click();
- 
-            // Verify the product is added to cart
-            WebElement successMessage = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), 'added to cart')]")));
-            if (successMessage.getText().contains("added to cart")) {
-                System.out.println("Product successfully added to cart.");
-            }
- 
-            // Proceed to checkout
-            WebElement checkoutButton = driver.findElement(By.xpath("//button[text()='Checkout']"));
-            checkoutButton.click();
- 
-            // Log out from the account (if logged in)
-            try {
-                WebElement accountDropdown = driver.findElement(By.xpath("//div[@class='account-dropdown']"));
-                accountDropdown.click();
-                WebElement logoutButton = driver.findElement(By.xpath("//a[text()='Logout']"));
-                logoutButton.click();
-                System.out.println("Logged out successfully.");
-            } catch (Exception e) {
-                System.out.println("Logout not required or user not logged in.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
-        } finally {
-            // Close the browser
-            driver.quit();
-        }
-    }
-}
+	
+	    public static void main(String[] args) throws InterruptedException {
+	        // Set up WebDriver for Edge browser
+	    	WebDriverManager.chromedriver().setup();
+			WebDriver driver=new ChromeDriver();
+	        // Maximize the window and clear cookies
+	        driver.manage().window().maximize();
+	        driver.manage().deleteAllCookies();
+	        // Step 1: Login with credentials
+	        driver.get("https://demo.opencart.com/en-gb?route=account/login");
+	        driver.findElement(By.id("input-email")).sendKeys("swethayanala92@gmail.com"); // Email from Lab 1
+	        driver.findElement(By.id("input-password")).sendKeys("Swetha@123");               // Password from Lab 1
+	        // Perform login
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit' and contains(@class, 'btn btn-primary')]")));
+	        js.executeScript("arguments[0].click();", loginButton);
+	        // Go to Components tab and click
+	        WebElement componentsTab = driver.findElement(By.xpath("//a[text()='Components']"));
+	        componentsTab.click();
+	        // Step 3: Select 'Monitors' from the dropdown
+	        WebElement monitorsLink = driver.findElement(By.xpath("//a[text()='Monitors (2)']"));
+	        js.executeScript("arguments[0].click();", monitorsLink);
+	        // Change the dropdown limit to 25
+	        WebElement limitDropdown = driver.findElement(By.id("input-limit"));
+	        js.executeScript("arguments[0].value='https://demo.opencart.com/en-gb/catalog/component/monitor?limit=25';", limitDropdown);
+	        js.executeScript("arguments[0].dispatchEvent(new Event('change'));", limitDropdown);
+	        // Step 4: Click on Add to Cart for the first product
+	        WebElement cartButton = driver.findElement(By.xpath("//div[@id='product-list']/div[1]//button[@type='submit' and @aria-label='Add to Cart']"));
+	        js.executeScript("arguments[0].click();", cartButton);
+	    }
+	}

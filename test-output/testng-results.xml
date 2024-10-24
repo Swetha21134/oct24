@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-10-24T16:36:47 IST" name="Default suite" finished-at="2024-10-24T16:37:55 IST" duration-ms="67443">
+    <groups>
+    </groups>
+    <test started-at="2024-10-24T16:36:47 IST" name="Default test" finished-at="2024-10-24T16:37:55 IST" duration-ms="67443">
+      <class name="Pack_webDriver.TC_lab6TestNG">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:36:47 IST" name="beforeSuite" finished-at="2024-10-24T16:36:47 IST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:36:47 IST" name="beforeTest" finished-at="2024-10-24T16:36:47 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:36:47 IST" name="beforeClass" finished-at="2024-10-24T16:36:47 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:36:47 IST" name="beforeMethod" finished-at="2024-10-24T16:36:58 IST" duration-ms="10954" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="f(java.lang.String,java.lang.String)[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:36:58 IST" name="f" data-provider="dp" finished-at="2024-10-24T16:37:19 IST" duration-ms="20882" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[yanalaswetha17@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Swetha@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:19 IST" name="afterMethod" finished-at="2024-10-24T16:37:23 IST" duration-ms="4130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:23 IST" name="beforeMethod" finished-at="2024-10-24T16:37:30 IST" duration-ms="6445" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="f(java.lang.String,java.lang.String)[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:30 IST" name="f" data-provider="dp" finished-at="2024-10-24T16:37:51 IST" duration-ms="20848" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[swetha2025r@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[incorrectPassword]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:51 IST" name="afterMethod" finished-at="2024-10-24T16:37:55 IST" duration-ms="4121" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:55 IST" name="afterClass" finished-at="2024-10-24T16:37:55 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:55 IST" name="afterTest" finished-at="2024-10-24T16:37:55 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:Pack_webDriver.TC_lab6TestNG@6933b6c6]" started-at="2024-10-24T16:37:55 IST" name="afterSuite" finished-at="2024-10-24T16:37:55 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- Pack_webDriver.TC_lab6TestNG -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

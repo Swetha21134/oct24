@@ -3,19 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Pack_webDriver.TC_TestNG">
+      <class name="Pack_webDriver.TC_Login_Excel2_Extentreport">
         <methods>
-          <include name="f" invocation-numbers="0"/>
-          <include name="beforeClass"/>
-          <include name="beforeMethod"/>
-          <include name="beforeSuite"/>
-          <include name="afterTest"/>
-          <include name="afterClass"/>
-          <include name="beforeTest"/>
-          <include name="afterMethod"/>
-          <include name="afterSuite"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- Pack_webDriver.TC_TestNG -->
+      </class> <!-- Pack_webDriver.TC_Login_Excel2_Extentreport -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

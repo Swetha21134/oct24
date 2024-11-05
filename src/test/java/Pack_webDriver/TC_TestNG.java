@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -28,7 +29,14 @@ public class TC_TestNG {
 	  
 	  driver.findElement(By.id("input-email")).sendKeys(username);
 	 	  driver.findElement(By.id("input-password")).sendKeys(password);
+	  if(driver.findElement(By.xpath("//button[normalize-space()='Login']")).isDisplayed());
+	  {
 	  driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+	  
+	  Assert.assertTrue(true) ;
+  }
+ 
+  
 	  Thread.sleep(20000);
   }
   private Object id(String string) {

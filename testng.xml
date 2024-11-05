@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="Pack_webDriver.TC_TestNG"/>
+      <class name="Pack_webDriver.TC_lab6TestNG"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

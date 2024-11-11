@@ -45,7 +45,7 @@ public class Lab6 {
 		driver.navigate().back();
 		driver.findElement(By.id("add-to-wishlist-button-submit")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		WebElement monitor=driver.findElement(By.xpath("//a[@id='huc-item-link']/span"));
+		WebElement monitor=driver.findElement(By.xpath("//a[normalize-space()='Add to Wish List']"));
 		System.out.println(monitor.getText());
 		System.out.println(itemName);
 		//Product Wishlist verification
@@ -75,7 +75,7 @@ public class Lab6 {
 
 
 
-
+		
 
  
 	}

@@ -13,72 +13,73 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TC_Login {
 	
 	WebDriver driver;
-	@Given("Launch the browser")
+	@Given("launch the browser")
 	public void launch_the_browser() {
 	    // Write code here that turns the phrase above into concrete actions
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
 	}
  
-	@And("Navigate to the URL")
+	@Given("Navigate to the URL")
 	public void navigate_to_the_url() {
-		driver.get("https://demo.opencart.com/en-gb?route=account/login");
+		driver.get("https://www.saucedemo.com/");
 	}
  
 	@When("Enter the valid username and password")
-	public void enter_the_valid_username_and_password() {
-	    // Write code here that turns the phrase above into concrete actions
-		driver.findElement(By.id("input-email")).sendKeys("katapallysruthi@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("Sruthi21");
-	   
+	public void enter_the_valid_username_and_password() throws InterruptedException {
+		  driver.findElement(By.id("user-name")).sendKeys("standard_user");
+	        Thread.sleep(1000);
+	        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+	        Thread.sleep(1000);
+ 
 	}
  
-	@And("click on login button")
+	@When("Click on login button")
 	public void click_on_login_button() {
-	    // Write code here that turns the phrase above into concrete actions
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
-	}
- 
-	@Then("login should be successful")
-	public void login_should_be_successful() {
-		if(driver.findElement(By.linkText("Logout")).isDisplayed())
-		{
-			System.out.println("Login Successful");
-		}
-		else
-		{
-			if(driver.findElement(By.linkText("Logout")).isDisplayed())
-			{
-				System.out.println("Login unsuccessful");
-			}
-		}
-	}
- 
-	@When("Enter the invalid username and password")
-	public void enter_the_invalid_username_and_password() {
-		driver.findElement(By.id("input-email")).sendKeys("ttttttttt@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("welcome");
-	    
+		driver.findElement(By.id("login-button")).click();
 	}
  
 	@Then("verify the login")
+	public void verify_the_login() {
+		// Verification logic
+        if (!driver.findElements(By.xpath("//*[@id='header_container']/div[2]/span")).isEmpty()
+&& driver.findElement(By.xpath("//*[@id='header_container']/div[2]/span")).getText().equals("Products")) {
+            System.out.println("Login Successful");
+        } else {
+            System.out.println("Login Failed");
+        }
+    }
+	
+ 
+	@Then("Close")
+	public void close() {
+		driver.quit();
+	}
+ 
+	@When("Enter the invalid username and password")
+	public void enter_the_invalid_username_and_password() throws InterruptedException {
+		driver.findElement(By.id("user-name")).sendKeys("invalid_user");
+        Thread.sleep(1000);
+        driver.findElement(By.id("password")).sendKeys("invalid_password");
+        Thread.sleep(1000);
+	}
+ 
+	@When("Click on login utton")
+	public void click_on_login_utton() {
+		driver.findElement(By.id("login-button")).click();
+	}
+ 
+	@Then("login should be unsuccessful")
 	public void login_should_be_unsuccessful() {
-	    try
-	    {
-	    	if(driver.findElement(By.linkText("Logout")).isDisplayed())
-			{
-				System.out.println("Login Successful");
-			}
-			else
-			{
-				if(driver.findElement(By.linkText("Logout")).isDisplayed())
-				{
-					System.out.println("Login unsuccessful");
-				}
-			}
-	    }
-	    	catch(Exception e) {
-	    		System.out.println(e);
-	    	}
-	    
+		// Verification logic
+        if (!driver.findElements(By.xpath("//*[@id='header_container']/div[2]/span")).isEmpty()
+&& driver.findElement(By.xpath("//*[@id='header_container']/div[2]/span")).getText().equals("Products")) {
+            System.out.println("Login Successful");
+        } else {
+            System.out.println("Login Failed");
+        }
+	}
+ 
+ 
 }

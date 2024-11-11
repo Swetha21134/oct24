@@ -36,3 +36,4 @@ Feature: Login to opencart application
     When Enter the invalid username and password
     And Click on login utton
     Then login should be unsuccessful
+    And Close

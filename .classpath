@@ -120,5 +120,6 @@
 	<classpathentry kind="lib" path="C:/Users/swetha.yanala/Downloads/selenium-java-4.25.0/byte-buddy-1.15.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/swetha.yanala/Downloads/selenium-java-4.25.0/byte-buddy-1.15.1-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/swetha.yanala/Downloads/selenium-java-4.25.0/checker-qual-3.43.0-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
